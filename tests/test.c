@@ -1,5 +1,5 @@
 /*
- * libxkcdrandom_test.c
+ * test.c
  * This file is part of libxkcdrandom
  *
  * Copyright (c) 2018 Martijn
@@ -20,10 +20,9 @@
  */
 
 #include <stdio.h>
-//#include "xkcdrandom.h"
+#include "xkcdrandom.h"
 
 int main(void)
 {
     printf("%d\n", getRandomNumber());
-    printf("%d\n", get_random_number());
 }
