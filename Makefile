@@ -1,15 +1,16 @@
 CC = gcc
 VPATH = src
-CFLAGS = -I include -c
+CFLAGS = -I include
 HEADERS = $(wildcard include/*.h)
 SRC = $(wildcard src/*.c)
 OBJ = xkcdrandom.o
 LIB = libxkcdrandom.a
 
-all :
-	$(CC) $(CFLAGS) $(SRC) -o $(OBJ)
+$(LIB) :
+	$(CC) $(CFLAGS) -c $(SRC) -o $(OBJ)
 	ar -cvq $(LIB) $(OBJ)
 tests :
-	$(CC) -o test.o test/test.c -L. -lxkcdrandom
+	$(LIB)
+	$(CC) -o tests test/test.c -L. -lxkcdrandom -Iinclude
 clean :
-	-rm $(LIB) $(OBJ)
+	-rm $(LIB) $(OBJ) tests
